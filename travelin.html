@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travelin</title>
+	<link rel="stylesheet" type="text/css" href="travelin.css">
+</head>
+<body>
+	<div>
+	<div id="Menu_samping" class="menu">
+  		<a href="javascript:void(0)" class="close" onclick="tutupMenu()">&times;</a>
+  		<a href="#">Home</a>
+  		<a href="#">Jadwal</a>
+  		<a href="#">Tiket</a>
+  		<a href="#">Contact</a>
+	</div>
+	<span style="font-size :30px ; cursor:pointer" onclick="bukaMenu()">&#9776;</span>
+	<script>
+		function bukaMenu() 
+		{
+  			document.getElementById("Menu_samping").style.width = "250px";
+  			document.body.style.backgroundColor = "rgb(180, 180, 180)";
+		}
+		function tutupMenu() 
+		{
+ 			document.getElementById("Menu_samping").style.width = "0";
+ 			document.body.style.backgroundColor = "white";
+		}
+	</script>
+</body>
+</html>
