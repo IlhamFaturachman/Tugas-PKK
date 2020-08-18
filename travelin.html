@@ -2,29 +2,160 @@
 <html>
 <head>
 	<title>Travelin</title>
-	<link rel="stylesheet" type="text/css" href="travelin.css">
+	<link rel="stylesheet" type="text/css" href="travelin.css" >
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
-<body>
-	<div>
-	<div id="Menu_samping" class="menu">
-  		<a href="javascript:void(0)" class="close" onclick="tutupMenu()">&times;</a>
-  		<a href="#">Home</a>
-  		<a href="#">Jadwal</a>
-  		<a href="#">Tiket</a>
-  		<a href="#">Contact</a>
+<body background="pesawat.jpg">
+	<h1>Travelin</h1>
+	<br>	
+	<div class="main"></div>
+	<div class="topnav" id="myTopnav">
+		<a href="#home" class="active">Home</a>
+		<a href="#news">Tiket</a>
+		<a href="#contact">Jadwal</a>
+		<a href="#about">About</a>
+		</div>
+		<br>
+		<br>
+	<section>
+		<img class="mySlides" src="wallpaper2you_219941.jpg"
+		style="width:100%">
+		<img class="mySlides" src="1300px-Tokosha_Mountains_and_Denali.jpg"
+		style="width:100%">
+		<img class="mySlides" src="pantai.jpg"
+		style="width:100%">
+	  </section>
+	  <br>
+	  <br>
+	  <div id="myBtnContainer">
+		<button class="btn active" onclick="filterSelection('all')"> Show all</button>
+		<button class="btn" onclick="filterSelection('kota')"> Kota</button>
+		<button class="btn" onclick="filterSelection('alam')"> Alam</button>
+		<button class="btn" onclick="filterSelection('lautan')"> Lautan</button>
+	  </div>
+	  <div class="row">
+		<div class="column kota">
+		  <div class="content">
+			<img src="kota3.jpg" alt="Kota3" style="width:100%">
+			<h4>Kota3</h4>
+			<p>Lorem ipsum dolor..</p>
+		  </div>
+		</div>
+		<div class="column kota">
+		  <div class="content">
+		  <img src="kota2.jpg" alt="Kota2" style="width:100%">
+			<h4>Kota2</h4>
+			<p>Lorem ipsum dolor..</p>
+		  </div>
+		</div>
+		<div class="column kota">
+			<div class="content">
+			<img src="kota4.jpg" alt="Kota4" style="width:100%">
+			  <h4>Kota4</h4>
+			  <p>Lorem ipsum dolor..</p>
+			</div>
+		  </div>
+		  <div class="column kota">
+			<div class="content">
+			<img src="kota5.jpg" alt="Kota5" style="width:100%">
+			  <h4>Kota5</h4>
+			  <p>Lorem ipsum dolor..</p>
+			</div>
+		  </div>
+		  <div class="column alam">
+			<div class="content">
+			<img src="alam1.jpg" alt="Alam1" style="width:100%">
+			  <h4>Alam1</h4>
+			  <p>Lorem ipsum dolor..</p>
+			</div>
+		  </div>
+		  <div class="column alam">
+			<div class="content">
+			<img src="alam2.jpg" alt="Alam2" style="width:100%">
+			  <h4>Alam2</h4>
+			  <p>Lorem ipsum dolor..</p>
+			</div>
+		  </div>
+		  <div class="column alam">
+			<div class="content">
+			<img src="alam3.jpg" alt="Alam3" style="width:100%; height: 290px;">
+			  <h4>Alam3</h4>
+			  <p>Lorem ipsum dolor..</p>
+			</div>
+		  </div>
+		  <div class="column alam">
+			<div class="content">
+			<img src="alam4.jpg" alt="Alam4" style="width:100%">
+			  <h4>Alam4</h4>
+			  <p>Lorem ipsum dolor..</p>
+			</div>
+		  </div>
+	  <div class="footer" >
+		<a href="#"><i class="fa fa-facebook-official"></i></a>
+		<a href="#"><i class="fa fa-pinterest-p"></i></a>
+		<a href="#"><i class="fa fa-twitter"></i></a>
+		<a href="#"><i class="fa fa-flickr"></i></a>
+		<a href="#"><i class="fa fa-linkedin"></i></a>
+		<p>
+		Powered by <a href="travelin.html" target="_blank">Travelin</a>
+		</p>
 	</div>
-	<span style="font-size :30px ; cursor:pointer" onclick="bukaMenu()">&#9776;</span>
 	<script>
-		function bukaMenu() 
-		{
-  			document.getElementById("Menu_samping").style.width = "250px";
-  			document.body.style.backgroundColor = "rgb(180, 180, 180)";
+		var myIndex = 0;
+		carousel();
+
+		function carousel() {
+ 		 var i;
+  		var x = document.getElementsByClassName("mySlides");
+  		for (i = 0; i < x.length; i++) {
+   		 x[i].style.display = "none";
+ 		 }
+ 		 myIndex++;
+ 		 if (myIndex > x.length) {myIndex = 1}
+  		x[myIndex-1].style.display = "block";
+ 		 setTimeout(carousel, 3000);
 		}
-		function tutupMenu() 
-		{
- 			document.getElementById("Menu_samping").style.width = "0";
- 			document.body.style.backgroundColor = "white";
-		}
+		filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
 	</script>
 </body>
 </html>
